@@ -12,7 +12,7 @@ interface ComedyContent {
   language: Language;
 }
 
-const comedyDatabase: Record<Mood, Record<Language, ComedyContent[]>> = {
+const comedyDatabase: Record<Exclude<Mood, null>, Record<Language, ComedyContent[]>> = {
   sad: {
     english: [
       { type: 'note', content: "Why don't scientists trust atoms? Because they make up everything! Just like your brain is making up reasons to be sad. You're amazing! 💙", language: 'english' },
@@ -254,7 +254,7 @@ export default function Landing() {
             MoodLift 🌈
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 font-medium">
-            Your personalized dose of joy & laughter
+            Your personalized dose of joy &amp; laughter
           </p>
         </div>
 
@@ -315,10 +315,12 @@ export default function Landing() {
         {/* Info Footer */}
         <div className="text-center text-gray-600 text-sm space-y-2 pt-8">
           <p>💝 Remember: You are loved, you are worthy, you are enough</p>
-          <p className="text-xs">If you're experiencing severe depression, please reach out to a mental health professional</p>
+          <p className="text-xs">If you&apos;re experiencing severe depression, please reach out to a mental health professional</p>
         </div>
       </div>
     </div>
   );
 }
+
+
 
